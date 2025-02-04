@@ -11,7 +11,7 @@ class Hotel {
     print("Available Rooms: ");
     for (var room in rooms) {
       if (room.isAvailable) {
-        print("Room \${room.roomNumber} - Price: \${room.price}");
+        print("Room ${room.roomNumber} - Price: ${room.price}");
       }
     }
   }
@@ -27,15 +27,15 @@ class Room {
   void bookRoom() {
     if (isAvailable) {
       isAvailable = false;
-      print("Room \$roomNumber has been booked.");
+      print("Room $roomNumber has been booked.");
     } else {
-      print("Room \$roomNumber is already booked.");
+      print("Room $roomNumber is already booked.");
     }
   }
 
   void cancelBooking() {
     isAvailable = true;
-    print("Booking for Room \$roomNumber has been canceled.");
+    print("Booking for Room $roomNumber has been canceled.");
   }
 }
 
@@ -50,9 +50,9 @@ class User {
       Booking booking = Booking(user: this, room: room);
       bookings.add(booking);
       room.bookRoom();
-      print("\$name booked Room \${room.roomNumber}.");
+      print("$name booked Room ${room.roomNumber}.");
     } else {
-      print("Room \${room.roomNumber} is not available.");
+      print("Room ${room.roomNumber} is not available.");
     }
   }
 
@@ -60,7 +60,7 @@ class User {
     if (bookings.contains(booking)) {
       booking.cancelBooking();
       bookings.remove(booking);
-      print("\$name canceled booking for Room \${booking.room.roomNumber}.");
+      print("$name canceled booking for Room ${booking.room.roomNumber}.");
     }
   }
 }
@@ -74,7 +74,7 @@ class Booking {
 
   void cancelBooking() {
     room.cancelBooking();
-    print("\${user.name} canceled booking for Room \${room.roomNumber}.");
+    print("${user.name} canceled booking for Room ${room.roomNumber}.");
   }
 }
 
