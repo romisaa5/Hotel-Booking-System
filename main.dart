@@ -7,9 +7,10 @@ class Hotel {
   }
 
   void showAvailableRooms() {
+    print("Available Rooms: ");
     for (var room in rooms) {
       if (room.isAvailable) {
-             print("Room ${room.roomNumber} - Price: ${room.Pice}");
+        print("Room ${room.roomNumber} - Price: ${room.Pice}");
       }
     }
   }
@@ -19,10 +20,20 @@ class Room {
   int roomNumber;
   double Pice;
   bool isAvailable;
-  Room(
-      {required this.roomNumber,
-      required this.isAvailable,
-      required this.Pice});
+  Room({required this.roomNumber, this.isAvailable = true, required this.Pice});
+  void bookRoom() {
+    if (isAvailable) {
+      isAvailable = false;
+      print("Room \$roomNumber has been booked.");
+    } else {
+      print("Room \$roomNumber is already booked.");
+    }
+  }
+
+  void cancelBooking() {
+    isAvailable = true;
+    print("Booking for Room \$roomNumber has been canceled.");
+  }
 }
 
 class User {
