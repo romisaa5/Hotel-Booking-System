@@ -2,6 +2,17 @@ class Hotel {
   String name;
   List<Room> rooms;
   Hotel({required this.name, required this.rooms});
+  void addRoom(Room room) {
+    rooms.add(room);
+  }
+
+  void showAvailableRooms() {
+    for (var room in rooms) {
+      if (room.isAvailable) {
+             print("Room ${room.roomNumber} - Price: ${room.Pice}");
+      }
+    }
+  }
 }
 
 class Room {
